@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Viewer - Apresentação de Aplicações Mobile</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Painel de Controles -->
+        <div class="controls-panel" id="controls-panel">
+            <button class="minimize-btn" id="minimize-btn" title="Minimizar painel">
+                ⌂
+            </button>
+            
+            <div class="controls-header">
+                <h1>📱 Mobile Viewer</h1>
+                <p>Apresente suas aplicações mobile com estilo</p>
+            </div>
+            
+            <div class="control-group">
+                <label for="website-url">URL da Aplicação:</label>
+                <input type="url" id="website-url" placeholder="https://sua-aplicacao.vercel.app" />
+                <button id="load-site">Carregar Site</button>
+            </div>
+
+            <div class="control-group">
+                <label for="background-image">Imagem de Fundo:</label>
+                <input type="file" id="background-image" accept="image/*" />
+                <input type="url" id="background-url" placeholder="ou URL da imagem" />
+            </div>
+
+            <div class="control-group">
+                <label for="background-size">Modo da Imagem:</label>
+                <select id="background-size">
+                    <option value="cover">Cobrir (Cover)</option>
+                    <option value="contain">Conter (Contain)</option>
+                    <option value="stretch">Esticar (Stretch)</option>
+                    <option value="center">Centralizar</option>
+                </select>
+            </div>
+
+            <div class="control-group">
+                <label for="device-width">Largura do Device:</label>
+                <input type="number" id="device-width" value="375"/>
+                <span class="unit">px</span>
+            </div>
+
+            <div class="control-group">
+                <label for="device-height">Altura do Device:</label>
+                <input type="number" id="device-height" value="812"/>
+                <span class="unit">px</span>
+            </div>
+
+            <div class="control-group">
+                <label for="show-frame">Moldura do Device:</label>
+                <div class="toggle-group">
+                    <label class="toggle">
+                        <input type="checkbox" id="show-frame" checked />
+                        <span class="toggle-slider"></span>
+                        <span class="toggle-label">Mostrar moldura</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label for="device-position">Posição do Device:</label>
+                <select id="device-position">
+                    <option value="center">Centro</option>
+                    <option value="left">Esquerda</option>
+                    <option value="right">Direita</option>
+                </select>
+            </div>
+
+            <div class="control-group">
+                <label for="hide-scrollbar">Scrollbar do Iframe:</label>
+                <div class="toggle-group">
+                    <label class="toggle">
+                        <input type="checkbox" id="hide-scrollbar" checked />
+                        <span class="toggle-slider"></span>
+                        <span class="toggle-label">Esconder scrollbar</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <button id="reset-settings">Resetar Configurações</button>
+            </div>
+
+            <div class="control-group share-section">
+                <label>🔗 Compartilhar Configuração:</label>
+                <button id="generate-link" class="share-btn">Gerar Link</button>
+                <div class="share-link-container" id="share-link-container" style="display: none;">
+                    <input type="text" id="share-link" readonly placeholder="Link será gerado aqui..." />
+                    <button id="copy-link" class="copy-btn" title="Copiar link">📋</button>
+                </div>
+                <small class="share-info">Compartilhe este link para que outros possam carregar suas configurações automaticamente</small>
+            </div>
+        </div>
+
+        <!-- Área de Visualização -->
+        <div class="viewer-area position-center" id="viewer-area">
+            <button class="maximize-btn" id="maximize-btn" title="Mostrar painel">
+                ⚙️
+            </button>
+            
+            <div class="device-frame" id="device-frame">
+                <div class="device-screen">
+                    <iframe id="mobile-iframe" src="about:blank"></iframe>
+                </div>
+                <div class="device-notch"></div>
+            </div>
+            
+            <div class="placeholder" id="placeholder">
+                <div class="placeholder-content">
+                    <h2>📱</h2>
+                    <p>Carregue uma URL para começar</p>
+                    <small>Insira a URL da aplicação e configure a imagem de fundo</small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+{
+  "name": "mobile-viewer",
+  "version": "1.0.0",
+  "description": "Uma aplicação web para apresentar aplicações mobile em iframe com imagens de fundo personalizadas",
+  "main": "index.html",
+  "scripts": {
+    "dev": "python -m http.server 3000",
+    "start": "python -m http.server 8080"
+  },
+  "keywords": [
+    "mobile",
+    "viewer",
+    "iframe",
+    "responsive",
+    "education"
+  ],
+  "author": "Patrick Silva",
+  "license": "MIT"
+}
