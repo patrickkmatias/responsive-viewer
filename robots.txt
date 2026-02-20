@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /config.js
+
+Sitemap: https://responsive-viewer.vercel.app/sitemap.xml

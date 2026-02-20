@@ -3,21 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mobile Viewer - Apresentação de Aplicações Mobile</title>
+    <title>Mobile Viewer - Visualize e Apresente Aplicações Mobile Online</title>
+    <meta name="description" content="Ferramenta online gratuita para visualizar e apresentar aplicações mobile em um frame de dispositivo realista. Ideal para professores, desenvolvedores e designers que precisam demonstrar projetos responsivos.">
+    <meta name="keywords" content="mobile viewer, visualizador mobile, apresentação mobile, iframe viewer, responsive design, dispositivo móvel, ferramenta educacional, web design">
+    <meta name="author" content="Patrick Silva">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#667eea">
+    <link rel="canonical" href="https://responsive-viewer.vercel.app/">
+
+    <meta name="google-site-verification" content="4WEA8VlW4PQGFvEAIDkE3qiSmKRnJ9KavSdotSkyKlg" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://responsive-viewer.vercel.app/">
+    <meta property="og:title" content="Mobile Viewer - Visualize e Apresente Aplicações Mobile Online">
+    <meta property="og:description" content="Ferramenta online gratuita para visualizar e apresentar aplicações mobile em um frame de dispositivo realista. Ideal para professores, desenvolvedores e designers.">
+    <meta property="og:image" content="https://responsive-viewer.vercel.app/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:site_name" content="Mobile Viewer">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Mobile Viewer - Visualize e Apresente Aplicações Mobile Online">
+    <meta name="twitter:description" content="Ferramenta online gratuita para visualizar e apresentar aplicações mobile em um frame de dispositivo realista.">
+    <meta name="twitter:image" content="https://responsive-viewer.vercel.app/og-image.png">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="manifest.json">
+
+    <!-- Preconnect for performance -->
+    <link rel="dns-prefetch" href="https://api.imgbb.com">
+    <link rel="preconnect" href="https://api.imgbb.com" crossorigin>
+
     <link rel="stylesheet" href="style.css">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Mobile Viewer",
+        "url": "https://responsive-viewer.vercel.app/",
+        "description": "Ferramenta online gratuita para visualizar e apresentar aplicações mobile em um frame de dispositivo realista. Ideal para professores, desenvolvedores e designers.",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Web",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "BRL"
+        },
+        "author": {
+            "@type": "Person",
+            "name": "Patrick Silva"
+        },
+        "inLanguage": "pt-BR",
+        "browserRequirements": "Requires JavaScript. Requires HTML5.",
+        "softwareVersion": "1.0.0",
+        "screenshot": "https://responsive-viewer.vercel.app/og-image.png"
+    }
+    </script>
 </head>
 <body>
-    <div class="container">
+    <div class="container" role="application" aria-label="Mobile Viewer - Visualizador de aplicações mobile">
         <!-- Painel de Controles -->
-        <div class="controls-panel" id="controls-panel">
-            <button class="minimize-btn" id="minimize-btn" title="Minimizar painel">
+        <aside class="controls-panel" id="controls-panel" aria-label="Painel de configurações">
+            <button class="minimize-btn" id="minimize-btn" title="Minimizar painel" aria-label="Minimizar painel de controles">
                 ⌂
             </button>
             
-            <div class="controls-header">
+            <header class="controls-header">
                 <h1>📱 Mobile Viewer</h1>
                 <p>Apresente suas aplicações mobile com estilo</p>
-            </div>
+            </header>
             
             <div class="control-group">
                 <label for="website-url">URL da Aplicação:</label>
@@ -88,39 +151,47 @@
                 <button id="reset-settings">Resetar Configurações</button>
             </div>
 
-            <div class="control-group share-section">
+            <section class="control-group share-section" aria-label="Compartilhamento">
                 <label>🔗 Compartilhar Configuração:</label>
                 <button id="generate-link" class="share-btn">Gerar Link</button>
                 <div class="share-link-container" id="share-link-container" style="display: none;">
-                    <input type="text" id="share-link" readonly placeholder="Link será gerado aqui..." />
-                    <button id="copy-link" class="copy-btn" title="Copiar link">📋</button>
+                    <input type="text" id="share-link" readonly placeholder="Link será gerado aqui..." aria-label="Link de compartilhamento" />
+                    <button id="copy-link" class="copy-btn" title="Copiar link" aria-label="Copiar link para área de transferência">📋</button>
                 </div>
                 <small class="share-info">Compartilhe este link para que outros possam carregar suas configurações automaticamente</small>
-            </div>
-        </div>
+            </section>
+        </aside>
 
         <!-- Área de Visualização -->
-        <div class="viewer-area position-center" id="viewer-area">
-            <button class="maximize-btn" id="maximize-btn" title="Mostrar painel">
+        <main class="viewer-area position-center" id="viewer-area" aria-label="Área de visualização do dispositivo">
+            <button class="maximize-btn" id="maximize-btn" title="Mostrar painel" aria-label="Mostrar painel de controles">
                 ⚙️
             </button>
             
-            <div class="device-frame" id="device-frame">
+            <div class="device-frame" id="device-frame" role="img" aria-label="Frame de dispositivo móvel">
                 <div class="device-screen">
-                    <iframe id="mobile-iframe" src="about:blank"></iframe>
+                    <iframe id="mobile-iframe" src="about:blank" title="Visualização da aplicação mobile"></iframe>
                 </div>
-                <div class="device-notch"></div>
+                <div class="device-notch" aria-hidden="true"></div>
             </div>
             
             <div class="placeholder" id="placeholder">
                 <div class="placeholder-content">
-                    <h2>📱</h2>
+                    <h2 aria-hidden="true">📱</h2>
                     <p>Carregue uma URL para começar</p>
                     <small>Insira a URL da aplicação e configure a imagem de fundo</small>
                 </div>
             </div>
-        </div>
+        </main>
     </div>
+
+    <noscript>
+        <div style="text-align:center;padding:40px;font-family:sans-serif;">
+            <h2>Mobile Viewer</h2>
+            <p>Esta aplicação requer JavaScript para funcionar. Por favor, habilite o JavaScript no seu navegador.</p>
+            <p>Mobile Viewer é uma ferramenta online gratuita para visualizar e apresentar aplicações mobile em um frame de dispositivo realista, ideal para professores, desenvolvedores e designers.</p>
+        </div>
+    </noscript>
 
     <script>
         window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };

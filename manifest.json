@@ -1,0 +1,18 @@
+{
+    "name": "Mobile Viewer",
+    "short_name": "MobileViewer",
+    "description": "Visualize e apresente aplicações mobile em um frame de dispositivo realista",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#667eea",
+    "theme_color": "#667eea",
+    "lang": "pt-BR",
+    "icons": [
+        {
+            "src": "favicon.svg",
+            "sizes": "any",
+            "type": "image/svg+xml"
+        }
+    ],
+    "categories": ["developer", "education", "utilities"]
+}
